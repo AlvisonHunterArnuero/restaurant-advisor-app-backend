@@ -8,9 +8,9 @@ import Restaurant from '../models/Restaurant';
  */
 export const getAllRestaurants = async (req: Request, res: Response) => {
     try {
-        const restaurants = await Restaurant.find();
+        const restaurants = await Restaurant.find({});
         if (restaurants.length > 0) {
-            res.json(restaurants);
+            res.send(restaurants).status(200);
         } else {
             res.status(204).send();
         }
@@ -31,10 +31,21 @@ export const addNewRestaurant = async (req: Request, res: Response) => {
         const createdRestaurant = await restaurant.save();
         res.status(201).json(createdRestaurant);
     } catch (error) {
-        const errorMessage = (error as Error).message;
-        res.status(400).json({ message: errorMessage });
+        // Check if the error is an instance of Error
+        if (error instanceof Error) {
+            // Handle validation errors
+            if (error.name === 'ValidationError') {
+                return res.status(400).json({ message: 'Validation error', error: error.message });
+            }
+            // Handle other types of errors
+            res.status(500).json({ message: 'Server error', error: error.message });
+        } else {
+            // Handle unknown error types
+            res.status(500).json({ message: 'An unknown error occurred' });
+        }
     }
 };
+
 
 /**
  * @route   GET /api/restaurants/search
@@ -63,12 +74,12 @@ export const searchRestaurant = async (req: Request, res: Response) => {
         });
 
         if (restaurants.length > 0) {
-            res.json(restaurants);
+            res.send(restaurants).status(200);
         } else {
-            res.status(204).send();
+            return res.status(404).json({ message: 'Restaurant not found' });
         }
     } catch (error) {
         const errorMessage = (error as Error).message;
-        res.status(500).json({ message: errorMessage });
+        res.status(500).json({ message: 'Server error', error: errorMessage });
     }
 };
