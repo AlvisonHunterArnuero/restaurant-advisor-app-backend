@@ -52,8 +52,14 @@
         "summary": "Add a new restaurant",
         "description": "Add a new restaurant to the list",
         "responses": {
-          "default": {
-            "description": ""
+          "201": {
+            "description": "Restaurant created successfully"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "requestBody": {
@@ -73,22 +79,23 @@
           {
             "name": "query",
             "in": "query",
+            "required": true,
             "type": "string",
             "description": "Name of the restaurant to search for"
           }
         ],
         "responses": {
           "200": {
-            "description": "A list of matching restaurants"
+            "description": "Returns a list of matching restaurants"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Search query parameter is required"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Restaurant not found"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal server error"
           }
         }
       }
