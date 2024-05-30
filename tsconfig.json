@@ -5,10 +5,12 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "strict": true,
+        "resolveJsonModule": true,
         "esModuleInterop": true,
         "skipLibCheck": true
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "swagger.js"
     ]
 }

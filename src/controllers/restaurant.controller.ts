@@ -1,12 +1,14 @@
 import { Request, Response } from 'express';
 import Restaurant from '../models/Restaurant';
 
-/**
- * @route   GET /api/restaurants
- * @desc    Get all restaurants
- * @access  Public
- */
 export const getAllRestaurants = async (req: Request, res: Response) => {
+    /* #swagger.tags = ['Restaurants']
+   #swagger.summary = 'Get all restaurants'
+   #swagger.description = 'Retrieve a list of all restaurants'
+   #swagger.responses[200] = {
+       description: 'A list of restaurants',
+   }
+*/
     try {
         const restaurants = await Restaurant.find({});
         if (restaurants.length > 0) {
@@ -20,12 +22,19 @@ export const getAllRestaurants = async (req: Request, res: Response) => {
     }
 };
 
-/**
- * @route   POST /api/restaurants
- * @desc    Add new restaurant
- * @access  Public
- */
 export const addNewRestaurant = async (req: Request, res: Response) => {
+    /* #swagger.tags = ['Restaurants']
+   #swagger.summary = 'Add a new restaurant'
+   #swagger.description = 'Add a new restaurant to the list'
+   #swagger.requestBody = {
+       description: 'Restaurant object that needs to be added',
+       required: true,
+       }
+   }
+   #swagger.responses[201] = {
+       description: 'Restaurant created successfully'
+   }
+*/
     try {
         const restaurant = new Restaurant(req.body);
         const createdRestaurant = await restaurant.save();
@@ -46,13 +55,19 @@ export const addNewRestaurant = async (req: Request, res: Response) => {
     }
 };
 
-
-/**
- * @route   GET /api/restaurants/search
- * @desc    Search restaurants based on query parameters
- * @access  Public
- */
 export const searchRestaurant = async (req: Request, res: Response) => {
+    /* #swagger.tags = ['Restaurants']
+      #swagger.summary = 'Search for restaurants'
+      #swagger.description = 'Search for restaurants based on query parameters'
+      #swagger.parameters['query'] = {
+          in: 'query',
+          type: 'string',
+          description: 'Name of the restaurant to search for',
+      }
+      #swagger.responses[200] = {
+          description: 'A list of matching restaurants',
+      }
+   */
     try {
         const { query } = req.query;
         if (!query) {

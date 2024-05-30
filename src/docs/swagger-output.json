@@ -1,0 +1,97 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My Restaurant API",
+    "description": "API for managing restaurants and menus",
+    "version": "1.0.0",
+    "license": {
+      "name": "Licensed Under MIT",
+      "url": "https://spdx.org/licenses/MIT.html"
+    },
+    "contact": {
+      "name": "Alvison Hunter/ CodeCrafters Labs",
+      "url": "https://codecrafterslabs.com/",
+      "email": "alvison@gmail.com"
+    }
+  },
+  "host": "localhost:5001",
+  "basePath": "/api/restaurants",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Restaurants"
+        ],
+        "summary": "Get all restaurants",
+        "description": "Retrieve a list of all restaurants",
+        "responses": {
+          "200": {
+            "description": "A list of restaurants"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Restaurants"
+        ],
+        "summary": "Add a new restaurant",
+        "description": "Add a new restaurant to the list",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "requestBody": {
+          "description": "Restaurant object that needs to be added",
+          "required": true
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "tags": [
+          "Restaurants"
+        ],
+        "summary": "Search for restaurants",
+        "description": "Search for restaurants based on query parameters",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "type": "string",
+            "description": "Name of the restaurant to search for"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of matching restaurants"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
