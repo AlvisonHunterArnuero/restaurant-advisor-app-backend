@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/index.ts",
     "dev": "nodemon --watch src --exec ts-node src/index.ts",
-    "swagger": "node ./src/swagger.ts"
+    "swagger": "node ./src/swagger/swagger.ts"
   },
   "nodemonConfig": {
     "watch": [

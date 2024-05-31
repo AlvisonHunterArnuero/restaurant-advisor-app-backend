@@ -38,10 +38,10 @@
             "description": "A list of restaurants"
           },
           "204": {
-            "description": "No Content"
+            "description": "No restaurants found"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal server error"
           }
         }
       },

@@ -5,7 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db';
 
-import swaggerFile from './docs/swagger-output.json';
+import swaggerFile from './swagger/docs/swagger-output.json';
 
 // Load environment variables from .env file
 dotenv.config();
