@@ -22,8 +22,8 @@ const PORT = process.env.PORT || 5001;
 // so we handle any potential errors using.catch
 connectDB().catch(console.dir);
 
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile, { explorer: true }));
+const cssSpecs = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.6.2/swagger-ui.min.css"
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile, { explorer: true, customCssUrl: cssSpecs }));
 
 // Middleware setup
 

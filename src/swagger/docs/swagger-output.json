@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My Restaurant API",
+    "title": "My Restaurants Reviewer API",
     "description": "API for managing restaurants and menus",
     "version": "1.0.0",
     "license": {
@@ -15,6 +15,12 @@
     }
   },
   "host": "localhost:5001",
+  "servers": [
+    {
+      "url": "https://xilotepeando.vercel.app/",
+      "description": "My Restaurants Reviewer API"
+    }
+  ],
   "basePath": "/api/restaurants",
   "schemes": [
     "http"
