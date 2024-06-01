@@ -18,7 +18,7 @@ const swaggerDefinition = {
   },
   host: 'https://xilotepeando.vercel.app/',
   basePath: '/api/restaurants',
-  schemes: ['http'],
+  schemes: ['http','https'],
   consumes: ['application/json'],
   produces: ['application/json'],
 };
