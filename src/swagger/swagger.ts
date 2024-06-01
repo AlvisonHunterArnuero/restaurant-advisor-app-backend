@@ -16,13 +16,7 @@ const swaggerDefinition = {
       'email': 'alvison@gmail.com'
     }
   },
-  servers: [
-    {
-      url: 'https://xilotepeando.vercel.app/',
-      description: 'My Restaurants Reviewer API',
-    },
-  ],
-  host: 'localhost:5001',
+  host: 'https://xilotepeando.vercel.app/',
   basePath: '/api/restaurants',
   schemes: ['http'],
   consumes: ['application/json'],
