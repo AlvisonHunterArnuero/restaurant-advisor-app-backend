@@ -18,9 +18,9 @@
     ]
   },
   "keywords": [],
-  "author": "",
+  "author": "Alvison Hunter Arnuero",
   "license": "ISC",
-  "description": "",
+  "description": "Basic API to display best Restaurants, hotels and cafes in Jinotepe",
   "dependencies": {
     "@types/mongoose": "^5.11.97",
     "cors": "^2.8.5",

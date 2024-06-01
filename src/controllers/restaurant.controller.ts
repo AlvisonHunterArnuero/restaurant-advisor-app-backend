@@ -5,12 +5,12 @@ export const getAllRestaurants = async (
   req: Request,
   res: Response
 ) => {
-  /* #swagger.tags = ['Restaurants']
-     #swagger.summary = 'Get all restaurants'
-     #swagger.description = 'Retrieve a list of all restaurants'
-     #swagger.responses[200] = {description: 'A list of restaurants'}
-    #swagger.responses[204] = {description: 'No restaurants found'}
-    #swagger.responses[500] = {description: 'Internal server error'}
+  /*  #swagger.tags = ['Restaurants'];
+      #swagger.summary = 'Get all restaurants';
+      #swagger.description = 'Retrieve a list of all restaurants';
+      #swagger.responses[200] = { description: 'A list of restaurants' };
+      #swagger.responses[204] = { description: 'No restaurants found' };
+      #swagger.responses[500] = { description: 'Internal server error' };
   */
   try {
     const restaurants = await Restaurant.find({});
@@ -78,18 +78,10 @@ export const searchRestaurant = async (
               type: 'string',
               description: 'Name of the restaurant to search for',
           }
-          #swagger.responses[200] = {
-              description: 'Returns a list of matching restaurants',
-          }
-          #swagger.responses[400] = {
-              description: 'Search query parameter is required',
-          }
-          #swagger.responses[404] = {
-              description: 'Restaurant not found',
-          }
-          #swagger.responses[500] = {
-              description: 'Internal server error',
-          }
+          #swagger.responses[200] = { description: 'Returns a list of matching restaurants'}
+          #swagger.responses[400] = { description: 'Search query parameter is required'}
+          #swagger.responses[404] = { description: 'Restaurant not found'}
+          #swagger.responses[500] = { description: 'Internal server error'}
        */
   try {
     const { query } = req.query;
